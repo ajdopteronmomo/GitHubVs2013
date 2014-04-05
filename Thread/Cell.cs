@@ -39,10 +39,7 @@ namespace ThreadTest
             }
             return cellContents;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="n"></param>
+
         public void WriteToCell(int n)
         {
             lock (this)
