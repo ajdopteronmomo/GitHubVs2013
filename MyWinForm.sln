@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalentBuddy", "TalentBuddy\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadTest", "Thread\ThreadTest.csproj", "{C3C9104E-8D61-4DAD-8D25-F6A9A82B808A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemeberEnglishWordTool", "RemeberEnglishWordTool\RemeberEnglishWordTool.csproj", "{36ABCD1F-359B-4FC9-BD51-B572B0854487}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C3C9104E-8D61-4DAD-8D25-F6A9A82B808A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3C9104E-8D61-4DAD-8D25-F6A9A82B808A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3C9104E-8D61-4DAD-8D25-F6A9A82B808A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36ABCD1F-359B-4FC9-BD51-B572B0854487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36ABCD1F-359B-4FC9-BD51-B572B0854487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36ABCD1F-359B-4FC9-BD51-B572B0854487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36ABCD1F-359B-4FC9-BD51-B572B0854487}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

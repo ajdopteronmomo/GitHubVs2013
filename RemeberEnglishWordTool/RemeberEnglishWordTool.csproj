@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36ABCD1F-359B-4FC9-BD51-B572B0854487}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RemeberEnglishWordTool</RootNamespace>
+    <AssemblyName>RemeberEnglishWordTool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\IrisSkin4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.80.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common\Access.cs" />
+    <Compile Include="form\FrmAddWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\FrmAddWord.Designer.cs">
+      <DependentUpon>FrmAddWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\FrmPractiseWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\FrmPractiseWord.Designer.cs">
+      <DependentUpon>FrmPractiseWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\FrmSearchWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\FrmSearchWord.Designer.cs">
+      <DependentUpon>FrmSearchWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\FrmUpdateWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\FrmUpdateWord.Designer.cs">
+      <DependentUpon>FrmUpdateWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="common\SQLiteHelper.cs" />
+    <EmbeddedResource Include="form\FrmAddWord.resx">
+      <DependentUpon>FrmAddWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\FrmPractiseWord.resx">
+      <DependentUpon>FrmPractiseWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\FrmSearchWord.resx">
+      <DependentUpon>FrmSearchWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\FrmUpdateWord.resx">
+      <DependentUpon>FrmUpdateWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="data\word.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="skin\Carlmness\Calmness.ssk" />
+    <None Include="skin\Carlmness\CalmnessColor1.ssk" />
+    <None Include="skin\Carlmness\CalmnessColor2.ssk" />
+    <None Include="skin\Deep\DeepCyan.ssk" />
+    <None Include="skin\Deep\DeepGreen.ssk" />
+    <None Include="skin\Deep\DeepOrange.ssk" />
+    <None Include="skin\Diamond\DiamondBlue.ssk" />
+    <None Include="skin\Diamond\DiamondGreen.ssk" />
+    <None Include="skin\Eighteen\Eighteen.ssk" />
+    <None Include="skin\Eighteen\EighteenColor1.ssk" />
+    <None Include="skin\Eighteen\EighteenColor2.ssk" />
+    <None Include="skin\Emerald\Emerald.ssk" />
+    <None Include="skin\Emerald\EmeraldColor1.ssk" />
+    <None Include="skin\Emerald\EmeraldColor2.ssk" />
+    <None Include="skin\Emerald\EmeraldColor3.ssk" />
+    <None Include="skin\Glass\GlassBrown.ssk" />
+    <None Include="skin\Glass\GlassGreen.ssk" />
+    <None Include="skin\Glass\GlassOrange.ssk" />
+    <None Include="skin\Longhorn\Longhorn.ssk" />
+    <None Include="skin\MacOS\MacOS.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="skin\Midsummer\Midsummer.ssk" />
+    <None Include="skin\Midsummer\MidsummerColor1.ssk" />
+    <None Include="skin\Midsummer\MidsummerColor2.ssk" />
+    <None Include="skin\Midsummer\MidsummerColor3.ssk" />
+    <None Include="skin\MP10\MP10.ssk" />
+    <None Include="skin\MSN\MSN.ssk" />
+    <None Include="skin\One\OneBlue.ssk" />
+    <None Include="skin\One\OneCyan.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="skin\One\OneGreen.ssk" />
+    <None Include="skin\One\OneOrange.ssk" />
+    <None Include="skin\Page\Page.ssk" />
+    <None Include="skin\Page\PageColor1.ssk" />
+    <None Include="skin\Page\PageColor2.ssk" />
+    <None Include="skin\RealOne\RealOne.ssk" />
+    <None Include="skin\Silver\Silver.ssk" />
+    <None Include="skin\Silver\SilverColor1.ssk" />
+    <None Include="skin\Silver\SilverColor2.ssk" />
+    <None Include="skin\Sports\SportsBlack.ssk" />
+    <None Include="skin\Sports\SportsBlue.ssk" />
+    <None Include="skin\Sports\SportsCyan.ssk" />
+    <None Include="skin\Sports\SportsGreen.ssk" />
+    <None Include="skin\Sports\SportsOrange.ssk" />
+    <None Include="skin\Steel\SteelBlack.ssk" />
+    <None Include="skin\Steel\SteelBlue.ssk" />
+    <None Include="skin\Vista1\vista1.ssk" />
+    <None Include="skin\Vista1\vista1_green.ssk" />
+    <None Include="skin\Vista2\Thumbs.db" />
+    <None Include="skin\Vista2\Vista2_color1.ssk" />
+    <None Include="skin\Vista2\Vista2_color2.ssk" />
+    <None Include="skin\Vista2\Vista2_color3.ssk" />
+    <None Include="skin\Vista2\Vista2_color4.ssk" />
+    <None Include="skin\Vista2\Vista2_color5.ssk" />
+    <None Include="skin\Vista2\Vista2_color6.ssk" />
+    <None Include="skin\Vista2\Vista2_color7.ssk" />
+    <None Include="skin\Warm\Warm.ssk" />
+    <None Include="skin\Warm\WarmColor1.ssk" />
+    <None Include="skin\Warm\WarmColor2.ssk" />
+    <None Include="skin\Warm\WarmColor3.ssk" />
+    <None Include="skin\Wave\Wave.ssk" />
+    <None Include="skin\Wave\WaveColor1.ssk" />
+    <None Include="skin\Wave\WaveColor2.ssk" />
+    <None Include="skin\WinXP\XPBlue.ssk" />
+    <None Include="skin\WinXP\XPGreen.ssk" />
+    <None Include="skin\WinXP\XPOrange.ssk" />
+    <None Include="skin\WinXP\XPSilver.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\IrisSkin4.dll" />
+    <Content Include="dll\System.Data.SQLite.dll" />
+    <Content Include="img\1.ico" />
+    <Content Include="img\2.ico" />
+    <Content Include="skin\Carlmness\calmness.gif" />
+    <Content Include="skin\Carlmness\calmness_color1.gif" />
+    <Content Include="skin\Carlmness\calmness_color2.gif" />
+    <Content Include="skin\Deep\deepcyan.gif" />
+    <Content Include="skin\Deep\deepgreen.gif" />
+    <Content Include="skin\Deep\deeporange.gif" />
+    <Content Include="skin\Diamond\diamondblue.gif" />
+    <Content Include="skin\Diamond\diamondgreen.gif" />
+    <Content Include="skin\Eighteen\eighteen.gif" />
+    <Content Include="skin\Eighteen\eighteen_color1.gif" />
+    <Content Include="skin\Eighteen\eighteen_color2.gif" />
+    <Content Include="skin\Emerald\emerald.gif" />
+    <Content Include="skin\Emerald\emerald_color1.gif" />
+    <Content Include="skin\Emerald\emerald_color2.gif" />
+    <Content Include="skin\Emerald\emerald_color3.gif" />
+    <Content Include="skin\Glass\glassbrown.gif" />
+    <Content Include="skin\Glass\glassgreen.gif" />
+    <Content Include="skin\Glass\glassorange.gif" />
+    <Content Include="skin\Longhorn\longhorn.gif" />
+    <Content Include="skin\MacOS\macos.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\Midsummer\midsummer.gif" />
+    <Content Include="skin\Midsummer\midsummer_color1.gif" />
+    <Content Include="skin\Midsummer\midsummer_color2.gif" />
+    <Content Include="skin\Midsummer\midsummer_color3.gif" />
+    <Content Include="skin\MP10\mp10.gif" />
+    <Content Include="skin\MSN\msn.gif" />
+    <Content Include="skin\One\oneblue.gif" />
+    <Content Include="skin\One\onecyan.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="skin\One\onegreen.gif" />
+    <Content Include="skin\One\oneorange.gif" />
+    <Content Include="skin\Page\page.gif" />
+    <Content Include="skin\Page\page_color1.gif" />
+    <Content Include="skin\Page\page_color2.gif" />
+    <Content Include="skin\RealOne\realone.gif" />
+    <Content Include="skin\Silver\silver.gif" />
+    <Content Include="skin\Silver\silver_color1.gif" />
+    <Content Include="skin\Silver\silver_color2.gif" />
+    <Content Include="skin\Sports\sportsblack.gif" />
+    <Content Include="skin\Sports\sportsblue.gif" />
+    <Content Include="skin\Sports\sportscyan.gif" />
+    <Content Include="skin\Sports\sportsgreen.gif" />
+    <Content Include="skin\Sports\sportsorange.gif" />
+    <Content Include="skin\Steel\steelblack.gif" />
+    <Content Include="skin\Steel\steelblue.gif" />
+    <Content Include="skin\Vista1\vista1.gif" />
+    <Content Include="skin\Vista1\vista1_green.gif" />
+    <Content Include="skin\Vista2\vista2_color1.gif" />
+    <Content Include="skin\Vista2\vista2_color2.gif" />
+    <Content Include="skin\Vista2\vista2_color3.gif" />
+    <Content Include="skin\Vista2\vista2_color4.gif" />
+    <Content Include="skin\Vista2\vista2_color5.gif" />
+    <Content Include="skin\Vista2\vista2_color6.gif" />
+    <Content Include="skin\Vista2\vista2_color7.gif" />
+    <Content Include="skin\Warm\warm.gif" />
+    <Content Include="skin\Warm\warm_color1.gif" />
+    <Content Include="skin\Warm\warm_color2.gif" />
+    <Content Include="skin\Warm\warm_color3.gif" />
+    <Content Include="skin\Wave\wave.gif" />
+    <Content Include="skin\Wave\wave_color1.gif" />
+    <Content Include="skin\Wave\wave_color2.gif" />
+    <Content Include="skin\WinXP\xpblue.gif" />
+    <Content Include="skin\WinXP\xpgreen.gif" />
+    <Content Include="skin\WinXP\xporange.gif" />
+    <Content Include="skin\WinXP\xpsilver.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
