@@ -29,7 +29,15 @@ namespace RemeberEnglishWordTool.form
                 access.AddWord(word, translate, type);
                 toolTipController1.HideHint();
                 toolTipController1.ShowHint("添加成功！", btnAdd, DevExpress.Utils.ToolTipLocation.RightCenter);
+                Clear();
             }
+        }
+
+        private void Clear()
+        {
+            this.txtTranslate.Text = string.Empty;
+            this.txtWord.Text = string.Empty;
+            this.cbxType.SelectedText = string.Empty;
         }
 
         private void txtWord_Validating(object sender, CancelEventArgs e)

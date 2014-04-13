@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using RemeberEnglishWordTool.common;
 using System;
 using System.Collections.Generic;

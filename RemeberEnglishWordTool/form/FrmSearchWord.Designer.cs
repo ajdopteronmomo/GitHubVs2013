@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridData = new DevExpress.XtraGrid.GridControl();
             this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cbxType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -48,14 +50,14 @@
             this.txtWord = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.pMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -69,18 +71,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWord.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridData
             // 
             this.gridData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            gridLevelNode1.LevelTemplate = this.gridView1;
+            gridLevelNode1.RelationName = "Level1";
+            this.gridData.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridData.Location = new System.Drawing.Point(0, 105);
             this.gridData.MainView = this.gridViewData;
             this.gridData.Name = "gridData";
             this.gridData.Size = new System.Drawing.Size(607, 335);
             this.gridData.TabIndex = 0;
             this.gridData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewData});
+            this.gridViewData,
+            this.gridView1});
             this.gridData.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridData_MouseDown);
             // 
             // gridViewData
@@ -129,6 +137,11 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.FieldName = "ID";
+            this.gridColumn5.Name = "gridColumn5";
             // 
             // panelControl1
             // 
@@ -263,6 +276,13 @@
             this.pMenu.Manager = this.barManager1;
             this.pMenu.Name = "pMenu";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Caption = "删除";
+            this.btnDelete.Id = 1;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
+            // 
             // barManager1
             // 
             this.barManager1.DockControls.Add(this.barDockControlTop);
@@ -309,17 +329,10 @@
             this.barSubItem1.Id = 0;
             this.barSubItem1.Name = "barSubItem1";
             // 
-            // btnDelete
+            // gridView1
             // 
-            this.btnDelete.Caption = "删除";
-            this.btnDelete.Id = 1;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.FieldName = "ID";
-            this.gridColumn5.Name = "gridColumn5";
+            this.gridView1.GridControl = this.gridData;
+            this.gridView1.Name = "gridView1";
             // 
             // FrmSearchWord
             // 
@@ -352,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWord.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,6 +399,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
 
     }
 }

@@ -35,7 +35,7 @@
             this.btnAddWord = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnTestWord = new DevExpress.XtraBars.BarButtonItem();
             this.btnFindWord = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLearnStatus = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLearnInfo = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -60,7 +60,7 @@
             this.btnAddWord,
             this.btnTestWord,
             this.btnFindWord,
-            this.btnLearnStatus});
+            this.btnLearnInfo});
             this.barManager1.MaxItemId = 8;
             // 
             // bar1
@@ -73,7 +73,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnAddWord),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnTestWord),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnFindWord),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnLearnStatus)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLearnInfo)});
             this.bar1.Text = "Tools";
             // 
             // btnAddWord
@@ -97,11 +97,12 @@
             this.btnFindWord.Name = "btnFindWord";
             this.btnFindWord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFindWord_ItemClick);
             // 
-            // btnLearnStatus
+            // btnLearnInfo
             // 
-            this.btnLearnStatus.Caption = "学习情况";
-            this.btnLearnStatus.Id = 6;
-            this.btnLearnStatus.Name = "btnLearnStatus";
+            this.btnLearnInfo.Caption = "学习情况";
+            this.btnLearnInfo.Id = 6;
+            this.btnLearnInfo.Name = "btnLearnInfo";
+            this.btnLearnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLearnInfo_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -193,7 +194,7 @@
         private DevExpress.XtraBars.BarLargeButtonItem btnAddWord;
         private DevExpress.XtraBars.BarButtonItem btnTestWord;
         private DevExpress.XtraBars.BarButtonItem btnFindWord;
-        private DevExpress.XtraBars.BarButtonItem btnLearnStatus;
+        private DevExpress.XtraBars.BarButtonItem btnLearnInfo;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;

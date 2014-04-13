@@ -36,6 +36,11 @@ namespace RemeberEnglishWordTool
         {
             OpenWindow(typeof(FrmPractiseWord).ToString());
         }
+
+        private void btnLearnInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(FrmLearnInfo).ToString());
+        }
         #endregion
 
         #region 通过反射，防止打开重复的mdi子窗体
