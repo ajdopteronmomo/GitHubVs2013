@@ -28,9 +28,10 @@ namespace RemeberEnglishWordTool.form
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             Reset();
-            string beginTime = this.deBegin.DateTime.ToString("yyyy-MM-dd HH:mm:ss");
-            string endTime = this.deEnd.DateTime.ToString("yyyy-MM-dd HH:mm:ss");
-            dt = access.SearchWord("", "", "", beginTime, endTime);
+            string beginTime = this.deBegin.DateTime.ToString("yyyy-MM-dd");
+            string endTime = this.deEnd.DateTime.ToString("yyyy-MM-dd");
+            string strWhere = access.GetSqlWhere("", "", "", beginTime, endTime);
+            dt = access.SearchWord(strWhere);
             if (dt != null && dt.Rows.Count > 0)
             {
                 int count = dt.Rows.Count;

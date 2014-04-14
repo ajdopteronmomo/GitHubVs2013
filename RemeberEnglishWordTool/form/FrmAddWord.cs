@@ -33,6 +33,9 @@ namespace RemeberEnglishWordTool.form
             }
         }
 
+        /// <summary>
+        /// 添加完数据空清空输入框，方便继续添加
+        /// </summary>
         private void Clear()
         {
             this.txtTranslate.Text = string.Empty;
@@ -40,6 +43,7 @@ namespace RemeberEnglishWordTool.form
             this.cbxType.SelectedText = string.Empty;
         }
 
+        #region 验证
         private void txtWord_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.txtWord.Text))
@@ -65,5 +69,6 @@ namespace RemeberEnglishWordTool.form
                 this.errorProvider1.SetError(this.txtTranslate, string.Empty);
             }
         }
+        #endregion
     }
 }

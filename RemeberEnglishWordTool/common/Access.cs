@@ -44,10 +44,81 @@ namespace RemeberEnglishWordTool.common
         /// <param name="beginTime"></param>
         /// <param name="endTime"></param>
         /// <returns></returns>
-        public DataTable SearchWord(string word, string translate, string type, string beginTime, string endTime, string id = null)
+        public DataTable SearchWord(string strWhere)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select * from T_Word t where 0=0");
+            sb.Append("select * from T_Word t");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                sb.Append(" WHERE 0=0" + strWhere);
+            }
+            sb.Append(string.Format(" order by t.CreateTime desc"));
+            DataSet ds = SQLiteHelper.ExecuteDataSet(sb.ToString(), CommandType.Text);
+            if (ds != null & ds.Tables[0].Rows.Count > 0)
+            {
+                return ds.Tables[0];
+            }
+            return null;
+        }
+
+        /// <summary>  
+        /// 获取记录总数  
+        /// </summary>  
+        public int GetRecordCount(string strWhere)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("select count(1) FROM T_Word ");
+            if (!string.IsNullOrWhiteSpace(strWhere))
+            {
+                sb.Append(" where 0=0" + strWhere);
+            }
+            object obj = SQLiteHelper.ExecuteScalar(sb.ToString(), CommandType.Text);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+        /// <summary>  
+        /// 分页获取数据列表  
+        /// </summary>  
+        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM ( ");
+            sb.Append(string.Format(" SELECT (SELECT COUNT(*) FROM T_Word AS t2 WHERE t2.CreateTime >= T.CreateTime {0})",strWhere));
+            sb.Append(" AS Rows, T.*  from T_Word T ");
+            if (!string.IsNullOrWhiteSpace(strWhere))
+            {
+                sb.Append(" WHERE 0=0" + strWhere);
+            }
+            if (!string.IsNullOrWhiteSpace(orderby))
+            {
+                sb.Append(" order by T." + orderby + " desc");
+            }
+            else
+            {
+                sb.Append(" order by T.ID desc");
+            }
+            sb.Append(" ) TT");
+            sb.AppendFormat(" WHERE TT.Rows between {0} and {1}", startIndex, endIndex);
+            return SQLiteHelper.ExecuteDataSet(sb.ToString(), CommandType.Text);
+        }
+
+        /// <summary>  
+        /// 获取查询条件  
+        /// </summary>  
+        /// <author>PengZhen</author>  
+        /// <time>2013-11-5 15:25:00</time>  
+        /// <returns>返回查询条件</returns>  
+        public string GetSqlWhere(string word,string translate,string type,string beginTime,string endTime,string id=null)
+        {
+            //查询条件  
+            StringBuilder sb = new StringBuilder();
+
             if (!string.IsNullOrWhiteSpace(word))
             {
                 sb.Append(string.Format(" and Word like '%{0}%'", word));
@@ -60,39 +131,19 @@ namespace RemeberEnglishWordTool.common
             {
                 sb.Append(string.Format(" and Type = '{0}'", type));
             }
-            if (!beginTime.Equals("0001-01-01 00:00:00"))
+            if (!beginTime.Equals("0001-01-01"))
             {
                 sb.Append(string.Format(" and CreateTime >= '{0}'", beginTime));
             }
-            if (!endTime.Equals("0001-01-01 00:00:00"))
+            if (!endTime.Equals("0001-01-01"))
             {
                 sb.Append(string.Format(" and CreateTime <= '{0}'", endTime));
             }
             if (!string.IsNullOrWhiteSpace(id))
             {
-                sb.Append(string.Format(" and ID ='{0}'", id));
+                sb.Append(string.Format(" and ID='{0}'", id));
             }
-            sb.Append(string.Format(" order by t.CreateTime desc"));
-            DataSet ds = SQLiteHelper.ExecuteDataSet(sb.ToString(), CommandType.Text);
-            if (ds != null & ds.Tables[0].Rows.Count > 0)
-            {
-                return ds.Tables[0];
-            }
-            return null;
-        }
-
-        public int CalCount(string today = null)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("select Count(*) from T_Word where 0=0"));
-            if (!string.IsNullOrWhiteSpace(today))
-            {
-                sb.Append(string.Format(" and CreateTime like '%{0}%'", today));
-            }
-            int count = 0;
-            object o = SQLiteHelper.ExecuteScalar(sb.ToString(), CommandType.Text);
-            int.TryParse(o.ToString(), out count);
-            return count;
-        }
+            return sb.ToString();
+        }  
     }
 }

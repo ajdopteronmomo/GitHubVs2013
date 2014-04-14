@@ -27,14 +27,15 @@ namespace RemeberEnglishWordTool.form
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            access.UpdateWord(_id, this.txtWord.Text, this.txtTranslate.Text, this.cbxType.SelectedText);
+            access.UpdateWord(_id, this.txtWord.Text, this.txtTranslate.Text, string.IsNullOrWhiteSpace(this.cbxType.SelectedText) ? this.cbxType.Text : this.cbxType.SelectedText);
             toolTipController1.HideHint();
             toolTipController1.ShowHint("修改成功！", btnUpdate, DevExpress.Utils.ToolTipLocation.RightCenter);
         }
 
         private void FrmUpdateWord_Load(object sender, EventArgs e)
         {
-            DataTable dt = access.SearchWord("", "", "", "0001-01-01 00:00:00", "0001-01-01 00:00:00", _id);
+            string sqlWhere = access.GetSqlWhere("", "", "", "", "", _id);
+            DataTable dt = access.SearchWord(sqlWhere);
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr=dt.Rows[0];
